@@ -7,7 +7,22 @@ if ( !defined('VERSION') ) {
 
 // Styles and Scripts.
 function byttek_styles_scripts() {
-    wp_enqueue_style( 'byttek-base', get_template_directory_uri() . '/assets/css/base.css', [], VERSION );
-    wp_enqueue_style( 'byttek-style', get_stylesheet_uri(), ['byttek-base'], VERSION );
+    wp_enqueue_style( 'byttek-style', get_stylesheet_uri(), [], VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'byttek_styles_scripts' );
+
+
+// Custom CSS Support.
+function custom_css_support() {
+   require "inc/custom-css.php";
+   new Custom_CSS_Support();
+}
+add_action('elementor/init', 'custom_css_support');
+
+
+// Shortcode: Current Year.
+function year_shortcode() {
+	$y = date('Y');
+	return $y;
+}
+add_shortcode( 'year', 'year_shortcode' );
