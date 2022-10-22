@@ -100,7 +100,13 @@ pre {
  */
 
 a {
+    color: inherit;
     background-color: transparent;
+    transition: color .25s, border-color .25s, background-color .25s ease-in-out;
+}
+
+a:hover {
+    color: var(--e-global-color-primary);
 }
 
 /**
@@ -395,4 +401,9 @@ template {
 
 [hidden] {
     display: none;
+}
+
+/* Elementor Defaults. */
+.elementor-icon-list-text {
+    transition: color 5.25s;
 }

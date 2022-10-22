@@ -26,3 +26,14 @@ function year_shortcode() {
 	return $y;
 }
 add_shortcode( 'year', 'year_shortcode' );
+
+
+// Theme Setup.
+function rfb_setup_theme() {
+    add_theme_support( 'title-tag' );
+
+    register_nav_menus([
+        'primary'   => esc_html__( 'Primary', 'byttek' ),
+    ]);
+}
+add_action( 'after_setup_theme', 'rfb_setup_theme' );
