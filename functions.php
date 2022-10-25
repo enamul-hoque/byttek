@@ -35,5 +35,7 @@ function rfb_setup_theme() {
     register_nav_menus([
         'primary'   => esc_html__( 'Primary', 'byttek' ),
     ]);
+
+    add_theme_support('custom-logo');
 }
 add_action( 'after_setup_theme', 'rfb_setup_theme' );
